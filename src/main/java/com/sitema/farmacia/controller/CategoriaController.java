@@ -44,13 +44,13 @@ public class CategoriaController {
 	}
 	
 	@PostMapping
-    public ResponseEntity<Categoria> post(@Valid @RequestBody Categoria tema) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
+    public ResponseEntity<Categoria> post(@Valid @RequestBody Categoria categoria) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
     }
 	
 	@PutMapping
-	public ResponseEntity<Categoria> put(@Valid @RequestBody Categoria tema) {
-		return repository.findById(tema.getId()).map(resposta-> ResponseEntity.status(HttpStatus.OK).body(repository.save(tema))).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+	public ResponseEntity<Categoria> put(@Valid @RequestBody Categoria categoria) {
+		return repository.findById(categoria.getId()).map(resposta-> ResponseEntity.status(HttpStatus.OK).body(repository.save(categoria))).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 		
 	@ResponseStatus(HttpStatus.NO_CONTENT)
